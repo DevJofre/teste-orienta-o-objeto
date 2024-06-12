@@ -5,7 +5,15 @@ class Category {
         this.description = description;
     }
 }
-const drinks = new Category('Bebidas', 'Desperte seus sentidos com um toque de sabor! Mergulhe em um universo de delícias refrescantes e revigorantes com nosso cardápio de bebidas!');
-console.log(drinks);
-const dessert = new Category("Sobremesa", "Desperte seus sentidos com um toque de sabor! Mergulhe em um universo de delícias refrescantes e revigorantes com nosso cardápio de bebidas!");
-console.log(dessert);
+class Product {
+    constructor(category, name, price, description, status) {
+        this.category = category;
+        this.nameP = name;
+        this.priceP = price;
+        this.descriptionP = description;
+        this.statusP = status;
+    }
+}
+const lanches = new Category('Lanches', 'Produtos totalmente Rustico');
+const pastelC = new Product(lanches, 'Pastel de Carne', 25, 'Paste de carne bovina', true);
+console.log(pastelC);
