@@ -39,9 +39,6 @@ class Product {
         return this.category
     }
 
-
-
-
 }
 
 const lanches = new Category('Lanches', 'Produtos totalmente Rustico')

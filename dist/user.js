@@ -17,7 +17,20 @@ class User {
         this.email = email;
         this.active = active;
     }
+    levelUser() {
+        return 1;
+    }
 }
 exports.User = User;
 class Admin extends User {
+    getName() {
+        return `Admin: ${this.name}`;
+    }
+    levelUser() {
+        return super.levelUser() + 1;
+    }
 }
+const adm1 = new Admin('Joao', "joao@gmail.com");
+console.log(adm1.levelUser());
+const user1 = new User('Lucas', "lucasççç@gmail.com");
+console.log(user1);
