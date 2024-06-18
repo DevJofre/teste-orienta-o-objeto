@@ -4,6 +4,12 @@ class Category {
         this.name = name;
         this.description = description;
     }
+    alterDescription(newDescription) {
+        if (newDescription.length < 5) {
+            throw new Error('Nome Invalido');
+        }
+        this.description = newDescription;
+    }
 }
 class Product {
     constructor(name, price, description, status) {
@@ -22,5 +28,7 @@ class Product {
 }
 const lanches = new Category('Lanches', 'Produtos totalmente Rustico');
 const pastelC = new Product('Pastel de Carne', 25, 'Paste de carne bovina', true);
-//pastelC.addCategory(lanches)
+pastelC.addCategory(lanches);
 console.log(pastelC.getCategory());
+lanches.alterDescription('Nada');
+console.log(pastelC);

@@ -1,19 +1,26 @@
 class Category {
-    public name: string;
-    public description: string;
+    private readonly name: string;
+    private description: string;
 
     constructor (name: string, description: string) {
         this.name = name
         this.description = description
     }
+
+    public alterDescription(newDescription: string):void {
+        if(newDescription.length < 5){
+            throw new Error('Nome Invalido')
+        }
+        this.description = newDescription 
+    }
 }
 
 class Product {
-    nameP: string;
-    priceP: number;
-    descriptionP: string;
-    statusP: boolean;
-    category: Category[] = []
+    private nameP: string;
+    private priceP: number;
+    private descriptionP: string;
+    private statusP: boolean;
+    private category: Category[] = []
 
 
     constructor (name: string, price: number, description: string, status: boolean){
@@ -24,13 +31,15 @@ class Product {
         this.statusP = status
     }
 
-    addCategory(newCategory: Category):void {
+    public addCategory(newCategory: Category):void {
         this.category.push(newCategory)
     }
 
-    getCategory(): Category[] {
+    public getCategory(): Category[] {
         return this.category
     }
+
+
 
 
 }
@@ -47,4 +56,8 @@ const pastelC = new Product(
 pastelC.addCategory(lanches)
 
 console.log(pastelC.getCategory())
+
+lanches.alterDescription('Nada')
+
+console.log(pastelC)
 
